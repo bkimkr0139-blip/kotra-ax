@@ -1,0 +1,134 @@
+[
+ {
+  "id": "FQ-001",
+  "category": "수출 시작",
+  "q_ko": "수출이 처음인데 어디서부터 시작해야 하나요?",
+  "q_en": "I am new to exporting. Where should I start?",
+  "a_ko": "먼저 글로벌 역량진단(GCL)으로 현재 수준을 확인하고, 수출초보기업 온보딩 교육과 항목별 시장조사로 목표 시장을 정하세요. AI 수출비서에게 목표를 말씀하시면 단계별 계획을 제안합니다.",
+  "a_en": "Start with the Global Competency Level diagnosis, then use the onboarding course and item-based market research to choose a target market. Tell the AI Export Assistant your goal and it will propose a step-by-step plan.",
+  "views": 31,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-002",
+  "category": "사업 신청",
+  "q_ko": "지원사업은 어떻게 신청하나요?",
+  "q_en": "How do I apply for a support program?",
+  "a_ko": "지원사업 메뉴에서 사업을 선택하고 신청을 누르면 기업 정보가 자동으로 채워지고 AI가 신청서 초안을 작성합니다. 내용을 확인한 뒤 제출 전 승인 단계를 거쳐 접수됩니다.",
+  "a_en": "Select a program and click Apply; your company data is prefilled and AI drafts the application. After review, it passes a confirmation step before submission.",
+  "views": 42,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-003",
+  "category": "바이어",
+  "q_ko": "추천 바이어는 믿을 수 있나요?",
+  "q_en": "Are recommended buyers trustworthy?",
+  "a_ko": "추천 바이어에는 신뢰도 점수와 추천 근거가 함께 표시됩니다. 시연 환경의 바이어는 합성 데이터이며 실제 거래 전에는 반드시 바이어 검증 절차를 거치세요.",
+  "a_en": "Recommendations show a trust score and the reasons. Buyers in this demo are synthetic; always complete buyer verification before real transactions.",
+  "views": 53,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-004",
+  "category": "상담",
+  "q_ko": "전문가 상담은 비용이 드나요?",
+  "q_en": "Does expert consulting cost money?",
+  "a_ko": "온라인 상담, 대표전화 상담, 방문 상담은 무료로 제공됩니다. 일부 컨설팅 사업은 별도 조건이 있을 수 있습니다.",
+  "a_en": "Online, phone and visit consulting are free. Some consulting programs may have separate conditions.",
+  "views": 64,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-005",
+  "category": "수출바우처",
+  "q_ko": "수출바우처는 누가 받을 수 있나요?",
+  "q_en": "Who can receive an export voucher?",
+  "a_ko": "수출 준비·초보·유망 단계 기업 중 요건을 충족하는 기업이 대상입니다. 자세한 자격은 사업 상세의 신청자격과 AI 추천 이유에서 확인할 수 있습니다.",
+  "a_en": "Companies at the readiness, beginner or promising stage that meet the criteria are eligible. See eligibility in the program detail and the AI recommendation reasons.",
+  "views": 75,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-006",
+  "category": "규제",
+  "q_ko": "수출 전에 인증이나 등록이 꼭 필요한가요?",
+  "q_en": "Is certification or registration required before exporting?",
+  "a_ko": "품목과 수출국에 따라 다릅니다. 화장품, 식품, 의료기기는 대부분 사전 등록이나 신고가 필요하므로 규제·인증 메뉴나 AI 수출비서에서 체크리스트를 확인하세요.",
+  "a_en": "It depends on product and destination. Cosmetics, food and medical devices usually require registration or notification; check the checklist in Regulations or the AI assistant.",
+  "views": 86,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-007",
+  "category": "상담회",
+  "q_ko": "상담회에서는 어떻게 바이어를 만나나요?",
+  "q_en": "How do I meet buyers at a meeting event?",
+  "a_ko": "참가 신청 후 선정되면 바이어 목록에서 관심 바이어에게 상담을 신청하고 30분 단위로 시간을 설정합니다. 상대가 수락하면 일정이 확정됩니다.",
+  "a_en": "After being selected, request meetings with buyers of interest and set 30-minute slots; when accepted the schedule is confirmed.",
+  "views": 97,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-008",
+  "category": "개인정보",
+  "q_ko": "내 기업 정보는 다른 기업에게 보이나요?",
+  "q_en": "Can other companies see my company data?",
+  "a_ko": "아닙니다. 기업 정보와 상담 이력은 해당 기업과 권한 있는 담당자만 조회할 수 있으며 AI 답변에도 타 기업 정보는 제공되지 않습니다.",
+  "a_en": "No. Company data and consultation history are visible only to your company and authorised staff; the AI never provides other companies' data.",
+  "views": 108,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-009",
+  "category": "AI",
+  "q_ko": "AI 답변의 출처는 어떻게 확인하나요?",
+  "q_en": "How do I check the sources of AI answers?",
+  "a_ko": "모든 답변 하단에 출처 카드가 표시되며 제목, 기관, 발행일, 관련도와 원문 보기 링크가 제공됩니다. 근거가 부족하면 답변을 유보하고 전문가 상담을 안내합니다.",
+  "a_en": "Source cards under every answer show title, organisation, date, relevance and an original link. If evidence is weak the AI abstains and points to expert consulting.",
+  "views": 119,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-010",
+  "category": "투자",
+  "q_ko": "외국인 투자자는 어떤 지원을 받을 수 있나요?",
+  "q_en": "What support can foreign investors get?",
+  "a_ko": "Invest KOREA에서 인센티브, 산업·입지, 투자 가이드를 확인하고 투자 상담과 옴부즈만 고충 상담을 신청할 수 있습니다.",
+  "a_en": "On Invest KOREA you can review incentives, industry/location and investment guides, and request investment consulting or Ombudsman grievance support.",
+  "views": 130,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-011",
+  "category": "계정",
+  "q_ko": "비밀번호를 잊었어요.",
+  "q_en": "I forgot my password.",
+  "a_ko": "로그인 화면의 비밀번호 찾기를 이용하거나 대표전화 상담으로 문의하세요. (시연 환경에서는 데모 계정을 사용합니다)",
+  "a_en": "Use Forgot Password on the login page or call the main number. (The demo environment uses demo accounts.)",
+  "views": 141,
+  "source_type": "demo",
+  "is_synthetic": 1
+ },
+ {
+  "id": "FQ-012",
+  "category": "해외정보",
+  "q_ko": "해외시장 뉴스는 어디서 보나요?",
+  "q_en": "Where can I read overseas market news?",
+  "a_ko": "해외시장 메뉴의 시장뉴스·진출전략에서 국가·산업별로 검색할 수 있으며, 관심 국가를 저장하면 MyKOTRA 추천 피드에 반영됩니다.",
+  "a_en": "Use Market News and Entry Strategy under Overseas Markets, filter by country and industry, and saved interests feed your MyKOTRA recommendations.",
+  "views": 152,
+  "source_type": "demo",
+  "is_synthetic": 1
+ }
+]

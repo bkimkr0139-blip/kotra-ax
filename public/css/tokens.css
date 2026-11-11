@@ -1,0 +1,37 @@
+/* KOTRA AX Portal — Design Tokens (platform-neutral; mirrored in docs/tokens.md)
+   spacing · radius · font-size · heading · border · shadow · breakpoint · status semantic colours */
+:root {
+  /* brand */
+  --c-primary: #0b4ea2; --c-primary-700: #083b7d; --c-primary-600: #0a4590; --c-primary-100: #d5e3f7; --c-primary-50: #eaf1fb;
+  --c-accent: #0a9bd8; --c-accent-50: #e6f5fc;
+  --c-red: #d4182b; --c-red-50: #fdecee;
+  /* neutral */
+  --c-ink: #14202e; --c-ink-2: #3a4657; --c-ink-3: #5b6879; --c-ink-4: #8693a4;
+  --c-line: #d7dee8; --c-line-2: #e9eef4; --c-bg: #f4f6f9; --c-surface: #ffffff; --c-surface-2: #f8fafc;
+  /* status semantic */
+  --s-ok: #17794a; --s-ok-bg: #e5f5ec; --s-warn: #9a5b00; --s-warn-bg: #fff3dc; --s-danger: #c0172a; --s-danger-bg: #fdecee;
+  --s-info: #0b62a8; --s-info-bg: #e5f1fb; --s-mock: #5f3dc4; --s-mock-bg: #efe9fd; --s-synth: #0b7285; --s-synth-bg: #e3f7fa; --s-neutral: #4a5667; --s-neutral-bg: #eceff4;
+  /* spacing (4px base) */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px; --sp-12: 48px; --sp-16: 64px;
+  /* radius */
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px; --r-pill: 999px;
+  /* type */
+  --font: "Pretendard Variable", Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "D2Coding", Menlo, Consolas, monospace;
+  --fs-xs: .75rem; --fs-sm: .875rem; --fs-md: 1rem; --fs-lg: 1.125rem; --fs-xl: 1.375rem; --fs-2xl: 1.75rem; --fs-3xl: 2.25rem; --fs-4xl: 2.875rem;
+  --lh: 1.6; --lh-tight: 1.3;
+  /* border / shadow */
+  --b-1: 1px solid var(--c-line); --b-2: 1px solid var(--c-line-2); --b-focus: 3px solid #7fb3f0;
+  --sh-1: 0 1px 2px rgba(16, 32, 54, .06), 0 1px 3px rgba(16, 32, 54, .05);
+  --sh-2: 0 4px 12px rgba(16, 32, 54, .08), 0 2px 4px rgba(16, 32, 54, .05);
+  --sh-3: 0 16px 40px rgba(16, 32, 54, .16), 0 4px 10px rgba(16, 32, 54, .08);
+  /* breakpoints (documented; used in @media): sm 480 · md 768 · lg 1024 · xl 1280 */
+  --container: 1280px; --header-h: 76px;
+}
+[data-theme="contrast"] {
+  --c-primary: #002f6c; --c-primary-700: #001c42; --c-ink: #000; --c-ink-2: #000; --c-ink-3: #1a1a1a; --c-line: #000; --c-line-2: #444; --c-bg: #fff; --c-surface-2: #fff;
+  --s-ok: #005a2b; --s-warn: #6b3b00; --s-danger: #8a0010; --b-focus: 4px solid #ffbf00;
+}
+html { font-size: 16px; }
+html[data-fs="sm"] { font-size: 15px; } html[data-fs="lg"] { font-size: 18px; } html[data-fs="xl"] { font-size: 20px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }

@@ -1,0 +1,66 @@
+/* Data Integration Studio (데이터 통합·MDM) 전용 스타일 */
+.di-sub { display: flex; gap: 6px; overflow-x: auto; padding: 4px 2px 10px; scrollbar-width: thin; border-bottom: 1px solid var(--c-line); margin-bottom: 4px; }
+.di-sub a { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--c-line); background: #fff; color: var(--c-ink-2); text-decoration: none; font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
+.di-sub a svg { width: 16px; height: 16px; }
+.di-sub a:hover { border-color: var(--c-primary-100); background: var(--c-primary-50); }
+.di-sub a.on { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+.di-conn { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+.di-conn-i { padding: 12px 14px; border: 1px solid var(--c-line); border-left: 5px solid var(--c-line); border-radius: var(--r-md); background: #fff; display: grid; gap: 4px; }
+.di-conn-i.ok { border-left-color: var(--s-ok); } .di-conn-i.bad { border-left-color: var(--s-danger); }
+.di-kpi .kpi .v { font-size: 1.5rem; }
+.di-flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.di-node { padding: 10px 14px; border: 2px solid var(--c-primary-100); border-radius: var(--r-md); background: #fff; display: grid; gap: 4px; text-align: center; min-width: 110px; }
+.di-arrow { font-size: 1.4rem; color: var(--c-ink-4); align-self: center; }
+.di-att { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border: var(--b-2); border-radius: var(--r-md); background: var(--c-surface-2); text-decoration: none; color: var(--c-ink); }
+.di-att:hover { background: var(--c-primary-50); } .di-att b { font-size: 1.125rem; font-variant-numeric: tabular-nums; } .di-att b.hot { color: var(--s-danger); }
+/* ERD Studio */
+.di-erd { display: grid; grid-template-columns: 260px minmax(0, 1fr) 380px; gap: 14px; align-items: start; }
+.di-canvas { position: relative; height: min(64vh, 620px); min-height: 380px; overflow: hidden; border: var(--b-1); border-radius: var(--r-lg); background-color: #fbfcfe; background-image: radial-gradient(#d9e1ec 1px, transparent 1px); background-size: 18px 18px; cursor: grab; touch-action: none; }
+.di-canvas.drag { cursor: grabbing; } .di-canvas.static { height: auto; max-height: 520px; overflow: auto; cursor: default; touch-action: auto; }
+.di-canvas-in { transform-origin: 0 0; display: inline-block; } .di-canvas.static .di-canvas-in { transform-origin: 0 0; }
+.di-canvas svg .ent { cursor: pointer; } .di-canvas svg .ent:hover rect:first-child, .di-canvas svg .ent:focus rect:first-child { stroke: #f59e0b; stroke-width: 2.5; } .di-canvas svg .ent:focus { outline: none; }
+.di-insp { border: var(--b-1); border-radius: var(--r-lg); background: #fff; padding: 14px; display: grid; gap: 10px; max-height: 660px; overflow: auto; }
+.di-bottom { margin-top: 8px; max-height: 420px; overflow: auto; }
+@media (max-width: 1279px) { .di-erd { grid-template-columns: minmax(0, 1fr); } .di-insp { max-height: none; } }
+/* MDM Review */
+.di-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; } @media (max-width: 767px) { .di-pair { grid-template-columns: 1fr; } }
+.di-cmp td, .di-cmp th { padding: 8px 12px; }
+.di-cmp tr.st-SAME td:last-child { color: var(--s-ok); font-weight: 700; } .di-cmp tr.st-CONFLICT { background: #fff3dc; } .di-cmp tr.st-CONFLICT td:last-child { color: var(--s-warn); font-weight: 700; } .di-cmp tr.st-MISSING td { color: var(--c-ink-3); background: var(--c-surface-2); }
+.di-side-h { padding: 8px 10px; border-radius: var(--r-md); background: var(--c-primary-50); }
+/* Pipelines */
+.di-stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; }
+.di-stage { padding: 10px; border: 1px solid var(--c-line); border-radius: var(--r-md); background: #fff; display: grid; gap: 2px; font-size: var(--fs-sm); }
+.di-stage.OK { border-color: #9ad6b3; background: var(--s-ok-bg); } .di-stage.WARN { border-color: #f0cf8f; background: var(--s-warn-bg); } .di-stage.FAILED { border-color: #eea3ac; background: var(--s-danger-bg); }
+/* Lineage */
+.di-lineage { display: flex; gap: 8px; align-items: stretch; overflow-x: auto; padding-bottom: 6px; }
+.di-lcol { flex: 1 1 190px; min-width: 170px; border: var(--b-1); border-radius: var(--r-md); background: #fff; padding: 10px; display: grid; gap: 6px; align-content: start; } .di-lcol h4 { margin: 0 0 4px; font-size: var(--fs-sm); color: var(--c-primary); }
+.di-lnode { padding: 6px 8px; border-radius: 8px; background: var(--c-surface-2); border: var(--b-2); overflow-wrap: anywhere; }
+.di-lineage .di-arrow { flex: none; }
+/* Evolution */
+.di-evo-flow { display: flex; gap: 6px; flex-wrap: wrap; } .di-evo-step { padding: 6px 12px; border-radius: 999px; background: var(--c-primary-50); color: var(--c-primary-700); font-size: var(--fs-xs); font-weight: 700; }
+
+.di-insp .table-wrap { overflow-x: auto; } .di-insp .tbl { min-width: 360px; } .di-insp .tbl td, .di-insp .tbl th { padding: 6px 8px; font-size: 12px; } .di-insp .tbl td:first-child { white-space: nowrap; }
+.di-insp code, .di-lcol code { word-break: normal; overflow-wrap: anywhere; }
+
+.modal .tbl td:first-child { white-space: nowrap; } .modal .ax-code { max-height: 380px; overflow: auto; }
+
+/* ── 통합 ERD 모델링 스튜디오 ── */
+.erd-u { display: grid; grid-template-columns: 240px minmax(0, 1fr) 380px; gap: 14px; align-items: start; }
+.erd-stage { position: relative; height: clamp(520px, 74vh, 980px); overflow: hidden; border: var(--b-1); border-radius: var(--r-lg); background: #fbfcfe radial-gradient(#d9e0ea 1px, transparent 1px) 0 0 / 22px 22px; cursor: grab; touch-action: none; user-select: none; }
+.erd-stage.drag { cursor: grabbing; }
+.erd-stage:focus-visible { outline: var(--b-focus); }
+.erd-svg-host svg { max-width: none; max-height: none; position: absolute; left: 0; top: 0; overflow: visible; }
+.erd-stage .ent { cursor: move; } .erd-stage .ent:focus-visible { outline: none; }
+.erd-mini { position: absolute; right: 10px; bottom: 10px; background: rgba(255,255,255,.92); border: var(--b-1); border-radius: 8px; padding: 4px; box-shadow: 0 4px 14px rgba(15,23,42,.12); cursor: pointer; }
+.erd-mini:empty { display: none; }
+.erd-legend { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; padding: 8px 12px; border: var(--b-1); border-radius: var(--r-md); background: #fff; }
+.erd-insp { border: var(--b-1); border-radius: var(--r-lg); background: #fff; padding: 14px; max-height: 80vh; overflow: auto; display: grid; gap: 12px; }
+.erd-rel li { cursor: pointer; padding: 3px 0; } .erd-rel li:hover { color: var(--c-primary); text-decoration: underline; }
+.ax-chip[style*="--c"][aria-pressed="true"] { background: #fff; color: var(--c-ink); border-color: var(--c); box-shadow: inset 0 0 0 1px var(--c); }
+@media (max-width: 1279px) { .erd-u { grid-template-columns: minmax(0, 1fr) 320px; } .erd-u > :first-child { display: none; } }
+@media (max-width: 899px) { .erd-u { grid-template-columns: 1fr; } .erd-stage { height: 60vh; } }
+
+.erd-col { display: grid; grid-template-columns: 22px minmax(0, 1fr) minmax(0, 1fr); gap: 8px; align-items: center; padding: 5px 0; border-bottom: var(--b-2); }
+.erd-col code { word-break: break-all; } .erd-col input { width: 100%; min-height: 30px; padding: 3px 8px; font-size: 12px; }
+.erd-cols { border: var(--b-1); border-radius: var(--r-md); padding: 0 10px; max-height: 360px; overflow: auto; }
+.erd-insp textarea, .erd-insp input[type=text] { width: 100%; }

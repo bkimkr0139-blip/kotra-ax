@@ -1,0 +1,20 @@
+# /etc/systemd/system/kotra-ax.service  →  sudo systemctl enable --now kotra-ax
+[Unit]
+Description=KOTRA AX Portal (MVP)
+After=network.target
+
+[Service]
+Type=simple
+User=kotra
+WorkingDirectory=/opt/kotra-ax
+EnvironmentFile=/opt/kotra-ax/.env
+ExecStart=/usr/bin/node server/index.js
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/kotra-ax/data
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

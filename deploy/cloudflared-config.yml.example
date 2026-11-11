@@ -1,0 +1,10 @@
+# Cloudflare Tunnel alternative (no inbound ports needed). Requires wizbase.ai.kr DNS on Cloudflare.
+#   cloudflared tunnel login && cloudflared tunnel create kotra-ax2
+#   cloudflared tunnel route dns kotra-ax2 kotra-ax2.wizbase.ai.kr
+#   cloudflared tunnel --config deploy/cloudflared-config.yml run kotra-ax2
+tunnel: kotra-ax2
+credentials-file: /Users/<you>/.cloudflared/<TUNNEL-ID>.json
+ingress:
+  - hostname: kotra-ax2.wizbase.ai.kr
+    service: http://127.0.0.1:4400
+  - service: http_status:404

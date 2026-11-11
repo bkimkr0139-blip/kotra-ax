@@ -1,0 +1,93 @@
+/* AX개발 · AXOS — 우측 탭 도크, 인덱스 드로어, 센터/콘솔 공용 스타일 (토큰: tokens.css) */
+:root { --ax-dev: #0b4ea2; --ax-dev-2: #1a6fd4; --ax-os: #14202e; --ax-os-2: #2b3b52; --ax-accent: #f59e0b; }
+
+/* ── 우측 도크 ── */
+.ax-dock { position: fixed; right: 0; top: 46%; transform: translateY(-50%); z-index: 90; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+.ax-tab { position: relative; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; width: 40px; min-height: 104px; padding: 12px 0; border: 0; cursor: pointer; color: #fff; text-decoration: none; font: 700 .8125rem/1 var(--font); letter-spacing: .04em; border-radius: 12px 0 0 12px; box-shadow: -3px 4px 14px rgba(16, 32, 54, .28); transition: width .15s ease, background .15s; }
+.ax-tab:hover, .ax-tab:focus-visible { width: 48px; }
+.ax-tab:focus-visible { outline: 3px solid #ffbf00; outline-offset: 2px; }
+.ax-tab svg { width: 18px; height: 18px; }
+.ax-tab-t { writing-mode: vertical-rl; text-orientation: mixed; }
+.ax-tab-dev { background: linear-gradient(180deg, var(--ax-dev-2), var(--ax-dev)); }
+.ax-tab-os { background: linear-gradient(180deg, var(--ax-os-2), var(--ax-os)); min-height: 92px; }
+.ax-open .ax-dock { right: min(440px, 100vw); z-index: 96; transition: right .18s ease-out; }
+@media (max-width: 767px) { .ax-open .ax-dock { right: 0; z-index: 90; } }
+.ax-badge { position: absolute; top: -6px; left: -6px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--ax-accent); color: #1a1100; font: 800 .6875rem/20px var(--font); text-align: center; box-shadow: 0 1px 4px rgba(0, 0, 0, .3); }
+.ax-badge[hidden] { display: none; }
+.quick-dock { right: 54px; }
+
+/* ── 드로어 ── */
+.ax-drawer { position: fixed; z-index: 95; top: 0; right: 0; bottom: 0; width: min(440px, 100vw); background: var(--c-surface); border-left: var(--b-1); box-shadow: var(--sh-3); display: flex; flex-direction: column; animation: axIn .18s ease-out; }
+@keyframes axIn { from { transform: translateX(24px); opacity: .4; } to { transform: none; opacity: 1; } }
+.ax-dr-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 16px 18px; border-bottom: var(--b-1); background: linear-gradient(180deg, var(--c-primary-50), #fff); }
+.ax-dr-h h2 { margin: 0; font-size: 1.125rem; color: var(--c-primary); }
+.ax-dr-b { padding: 14px 18px 24px; overflow-y: auto; flex: 1; display: grid; gap: 14px; align-content: start; }
+.ax-sec h4 { margin: 0 0 6px; font-size: .9375rem; }
+.ax-cur h3 { margin: 6px 0 2px; font-size: 1.125rem; }
+.ax-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ax-list li { padding: 8px 10px; border: var(--b-2); border-radius: var(--r-md); background: var(--c-surface-2); font-size: var(--fs-sm); }
+.ax-feat { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.ax-wide { width: 100%; justify-content: center; }
+.ax-dr-f { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 4px; border-top: var(--b-2); }
+@media (max-width: 767px) { .ax-tab { width: 34px; min-height: 84px; } .ax-tab-os { min-height: 76px; } .ax-dock { top: 38%; } }
+@media print { .ax-dock, .ax-drawer { display: none !important; } }
+
+/* ── 피드백 폼 ── */
+.ax-form .ax-target { padding: 8px 10px; background: var(--c-primary-50); border-radius: var(--r-md); font-size: var(--fs-sm); }
+.ax-form textarea, .ax-form input[type=text], .ax-form select { width: 100%; }
+.ax-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.ax-chip { border: 1px solid var(--c-line); background: #fff; color: var(--c-ink-2); border-radius: var(--r-pill); padding: 5px 12px; font: 600 var(--fs-sm)/1.2 var(--font); cursor: pointer; min-height: 32px; }
+.ax-chip[aria-pressed="true"] { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+.ax-chip:focus-visible { outline: var(--b-focus); outline-offset: 1px; }
+.ax-quality { display: flex; gap: 8px; flex-wrap: wrap; }
+.ax-ck { font-size: var(--fs-xs); color: var(--c-ink-3); background: var(--c-surface-2); border: var(--b-2); border-radius: var(--r-pill); padding: 2px 10px; }
+.ax-ck.ok { color: var(--s-ok); background: var(--s-ok-bg); border-color: transparent; font-weight: 700; }
+.ax-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; } @media (max-width: 767px) { .ax-grid2 { grid-template-columns: 1fr; } }
+.ax-req { display: inline-flex; gap: 4px; align-items: center; font-size: var(--fs-xs); padding: 3px 8px; border: var(--b-1); border-radius: var(--r-pill); background: #fff; }
+.ax-timeline { list-style: none; margin: 6px 0 0; padding: 0 0 0 14px; border-left: 2px solid var(--c-line); display: grid; gap: 8px; }
+.ax-timeline li { position: relative; font-size: var(--fs-sm); }
+.ax-timeline li::before { content: ""; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--c-primary); border: 2px solid #fff; box-shadow: 0 0 0 1px var(--c-primary); }
+
+/* ── 센터 레이아웃 ── */
+.ax-hero { padding: 22px 24px; border-radius: var(--r-lg); background: linear-gradient(120deg, #0b2a5c, #0b4ea2 55%, #0a9bd8); color: #fff; }
+.ax-hero h2 { margin: 0 0 6px; color: #fff; font-size: 1.375rem; } .ax-hero p { margin: 0; color: #e3efff; max-width: 78ch; }
+.ax-flow { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0; margin-top: 16px; counter-reset: st; }
+.ax-flow > li { list-style: none; position: relative; background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .28); padding: 10px 10px 10px 12px; min-height: 86px; }
+.ax-flow > li + li { margin-left: -1px; }
+.ax-flow > li:first-child { border-radius: 12px 0 0 12px; } .ax-flow > li:last-child { border-radius: 0 12px 12px 0; }
+.ax-flow b { display: block; font-size: var(--fs-sm); } .ax-flow span { display: block; font-size: var(--fs-xs); color: #d3e5ff; margin-top: 2px; }
+.ax-flow em { display: block; font-style: normal; font-weight: 800; font-size: 1.25rem; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.ax-flow > li::before { counter-increment: st; content: counter(st); position: absolute; right: 8px; top: 6px; font-size: .6875rem; opacity: .7; }
+.ax-flow-ol { margin: 16px 0 0; padding: 0; }
+@media (max-width: 1023px) { .ax-flow { grid-template-columns: repeat(2, 1fr); gap: 8px; } .ax-flow > li, .ax-flow > li:first-child, .ax-flow > li:last-child { border-radius: 10px; margin-left: 0; } }
+.ax-tree { border: var(--b-1); border-radius: var(--r-lg); background: #fff; max-height: 72vh; overflow: auto; }
+.ax-tree details > summary { cursor: pointer; padding: 10px 14px; font-weight: 700; background: var(--c-surface-2); border-bottom: var(--b-2); list-style-position: inside; }
+.ax-tree a, .ax-tree button.ax-node { display: flex; width: 100%; justify-content: space-between; gap: 8px; align-items: center; text-align: left; padding: 8px 14px 8px 26px; border: 0; background: none; color: var(--c-ink-2); font: inherit; font-size: var(--fs-sm); text-decoration: none; cursor: pointer; border-bottom: var(--b-2); }
+.ax-tree .ax-node[aria-current="true"] { background: var(--c-primary-50); color: var(--c-primary); font-weight: 700; }
+.ax-tree .ax-node:hover { background: var(--c-surface-2); }
+.ax-split { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 18px; align-items: start; } @media (max-width: 1023px) { .ax-split { grid-template-columns: 1fr; } .ax-tree { max-height: 320px; } }
+.ax-cnt { font-size: .6875rem; font-weight: 800; border-radius: 10px; padding: 1px 7px; background: var(--c-line-2); color: var(--c-ink-2); }
+.ax-cnt.open { background: var(--ax-accent); color: #1a1100; }
+.ax-feat-card { display: flex; justify-content: space-between; gap: 10px; align-items: center; padding: 10px 12px; border: var(--b-1); border-radius: var(--r-md); background: #fff; }
+.ax-gate { border: var(--b-1); border-left: 5px solid var(--c-line); border-radius: var(--r-md); padding: 12px 14px; background: #fff; }
+.ax-gate.PASS { border-left-color: var(--s-ok); } .ax-gate.WARN { border-left-color: var(--s-warn); } .ax-gate.FAIL { border-left-color: var(--s-danger); } .ax-gate.INFO { border-left-color: var(--s-info); }
+.ax-gate .v { font-size: 1.25rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.ax-seg { display: flex; height: 14px; border-radius: 7px; overflow: hidden; background: var(--c-line-2); }
+.ax-seg i { display: block; height: 100%; }
+.ax-md pre, .ax-code { background: #0f1b2d; color: #dbe7ff; padding: 12px 14px; border-radius: var(--r-md); overflow: auto; font: .8125rem/1.55 var(--font-mono); white-space: pre-wrap; word-break: break-word; }
+.ax-mode { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; } @media (max-width: 1023px) { .ax-mode { grid-template-columns: repeat(2, 1fr); } }
+.ax-mode button { text-align: left; border: 2px solid var(--c-line); background: #fff; border-radius: var(--r-md); padding: 12px; cursor: pointer; font: inherit; }
+.ax-mode button[aria-pressed="true"] { border-color: var(--c-primary); background: var(--c-primary-50); }
+.ax-mode button:disabled { cursor: not-allowed; opacity: .75; }
+.ax-mode b { display: block; margin-bottom: 4px; }
+.ax-led { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--c-ink-4); margin-right: 6px; }
+.ax-led.ONLINE { background: #1fb86a; box-shadow: 0 0 0 3px rgba(31, 184, 106, .25); } .ax-led.STALE { background: var(--ax-accent); } .ax-led.NEVER { background: var(--c-ink-4); }
+.ax-matrix { border-collapse: collapse; width: 100%; font-size: var(--fs-sm); } .ax-matrix th, .ax-matrix td { border: var(--b-2); padding: 8px; text-align: center; } .ax-matrix th:first-child, .ax-matrix td:first-child { text-align: left; }
+.ax-matrix td select { min-height: 32px; width: 64px; }
+.ax-raci-A { background: #fde2e4; font-weight: 800; } .ax-raci-R { background: #dbeafe; font-weight: 700; } .ax-raci-C { background: #fef3c7; } .ax-raci-I { background: #f1f5f9; }
+.ax-trace td { vertical-align: top; }
+.ax-rowx > td { background: var(--c-surface-2); }
+
+.tbl td > b { white-space: nowrap; }
+.ax-matrix select { width: 64px; }
+.adm-portal-btn { white-space: nowrap; background: #fff; flex: none; }

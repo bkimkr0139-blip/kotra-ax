@@ -1,0 +1,15 @@
+{
+  "name": "kotra-ax-portal",
+  "version": "1.0.0",
+  "description": "KOTRA 지능형 무역투자플랫폼 MVP — Claude Code implementation (zero-dependency full-stack, Node >= 22.5)",
+  "private": true,
+  "type": "commonjs",
+  "engines": { "node": ">=22.5.0" },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node server/seed/index.js --reset",
+    "seed:export": "node server/seed/export.js",
+    "test": "node --test test/*.test.js"
+  }
+}

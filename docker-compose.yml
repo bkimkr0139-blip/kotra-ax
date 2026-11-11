@@ -1,0 +1,22 @@
+# docker compose --env-file .env up -d --build     (app + Caddy with automatic HTTPS for kotra-ax2.wizbase.ai.kr)
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      TRUST_PROXY: "true"
+    volumes:
+      - kotra-data:/app/data
+    expose: ["4400"]
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./deploy/Caddyfile.docker:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on: [app]
+volumes: { kotra-data: {}, caddy-data: {}, caddy-config: {} }

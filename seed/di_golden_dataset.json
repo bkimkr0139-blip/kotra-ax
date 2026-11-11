@@ -1,0 +1,188 @@
+{
+  "generated_at": "2026-11-09T14:34:46.553Z",
+  "seed": 20261109,
+  "note": "합성 예시 — 실제 KOTRA 운영 DB 구조가 아님. 기대값은 자동 테스트(test/di.test.js)가 검증한다.",
+  "cases": [
+    {
+      "id": "C01",
+      "title": "확실한 법인 매칭",
+      "records": [
+        "CRM:demo_crm_customer:CRM-C0001",
+        "BUYKOREA:demo_bk_member:BK-M0001"
+      ],
+      "ExpectedMatch": {
+        "band": "AUTO_LINK_CANDIDATE",
+        "min_score": 70,
+        "auto_merge": false
+      },
+      "ExpectedConsent": {
+        "both": "VALID"
+      },
+      "ExpectedQualityIssue": [],
+      "ExpectedGoldenFields": {
+        "display_name": "K-Beauty Labs",
+        "country_code": "KR",
+        "hs_codes_after_merge_include": "8543.70"
+      }
+    },
+    {
+      "id": "C02",
+      "title": "후보만 발생(법인명 유사·국가 동일·연락처 다름)",
+      "records": [
+        "CRM:demo_crm_customer:CRM-C0002",
+        "BUYKOREA:demo_bk_member:BK-M0002"
+      ],
+      "ExpectedMatch": {
+        "band": "REVIEW_REQUIRED",
+        "max_score": 69,
+        "auto_merge": false
+      },
+      "ExpectedConsent": {
+        "both": "VALID"
+      },
+      "ExpectedQualityIssue": [
+        "DQ-C01 아님"
+      ],
+      "ExpectedGoldenFields": {}
+    },
+    {
+      "id": "C03",
+      "title": "동일 이메일 다른 담당자(공유 메일)",
+      "records": [
+        "CRM:demo_crm_customer:CRM-C0003",
+        "CRM:demo_crm_customer:CRM-C0004",
+        "BUYKOREA:demo_bk_member:BK-M0003"
+      ],
+      "ExpectedMatch": {
+        "band": "DO_NOT_LINK",
+        "block": "SHARED_EMAIL_ONLY|COUNTRY_MISMATCH_NO_VERIFIED_ID"
+      },
+      "ExpectedConsent": {
+        "all": "VALID"
+      },
+      "ExpectedQualityIssue": [],
+      "ExpectedGoldenFields": {
+        "persons_remain_separate": true
+      }
+    },
+    {
+      "id": "C04",
+      "title": "동일 이름 다른 국가(동명이법인)",
+      "records": [
+        "CRM:demo_crm_customer:CRM-C0005",
+        "BUYKOREA:demo_bk_member:BK-M0004"
+      ],
+      "ExpectedMatch": {
+        "band": "DO_NOT_LINK",
+        "block": "CONFLICTING_VERIFIED_ID"
+      },
+      "ExpectedConsent": {
+        "both": "VALID"
+      },
+      "ExpectedQualityIssue": [],
+      "ExpectedGoldenFields": {}
+    },
+    {
+      "id": "C05",
+      "title": "동의 철회",
+      "records": [
+        "CRM:demo_crm_customer:CRM-C0006"
+      ],
+      "ExpectedMatch": {
+        "consent_blocked": true
+      },
+      "ExpectedConsent": {
+        "CRM": "REVOKED"
+      },
+      "ExpectedQualityIssue": [],
+      "ExpectedGoldenFields": {
+        "master_created": false,
+        "served": false
+      }
+    },
+    {
+      "id": "C06",
+      "title": "기한 지난 동의",
+      "records": [
+        "CRM:demo_crm_customer:CRM-C0007"
+      ],
+      "ExpectedMatch": {},
+      "ExpectedConsent": {
+        "CRM": "EXPIRED"
+      },
+      "ExpectedQualityIssue": [
+        "동의 만료 → 통합 대상 제외"
+      ],
+      "ExpectedGoldenFields": {
+        "master_created": false
+      }
+    },
+    {
+      "id": "C07",
+      "title": "해외 바이어 연락처 결측/형식 오류",
+      "records": [
+        "BUYKOREA:demo_bk_member:BK-M0006",
+        "BUYKOREA:demo_bk_member:BK-M0007"
+      ],
+      "ExpectedMatch": {},
+      "ExpectedConsent": {
+        "BUYKOREA": "VALID"
+      },
+      "ExpectedQualityIssue": [
+        "DQ-C04",
+        "DQ-V02"
+      ],
+      "ExpectedGoldenFields": {}
+    },
+    {
+      "id": "C08",
+      "title": "국가코드 불일치 KOR↔KR",
+      "records": [
+        "CRM:demo_crm_customer:CRM-C0008",
+        "BUYKOREA:demo_bk_member:BK-M0008"
+      ],
+      "ExpectedMatch": {
+        "band": "AUTO_LINK_CANDIDATE"
+      },
+      "ExpectedConsent": {
+        "both": "VALID"
+      },
+      "ExpectedQualityIssue": [
+        "DQ-V04 (KOR) → 정규화 제안 KR"
+      ],
+      "ExpectedGoldenFields": {
+        "country_code": "KR"
+      }
+    },
+    {
+      "id": "C09",
+      "title": "신규 속성 발견(BK export_interest_category)",
+      "records": [
+        "BUYKOREA:demo_bk_member"
+      ],
+      "ExpectedMatch": {},
+      "ExpectedConsent": {},
+      "ExpectedQualityIssue": [],
+      "ExpectedGoldenFields": {
+        "drift": "NEW_COLUMN",
+        "requires_approval": true
+      }
+    },
+    {
+      "id": "C10",
+      "title": "삭제/정정 이벤트(CRM-C0009 정정 후 증분 반영)",
+      "records": [
+        "CRM:demo_crm_customer:CRM-C0009"
+      ],
+      "ExpectedMatch": {},
+      "ExpectedConsent": {
+        "CRM": "VALID"
+      },
+      "ExpectedQualityIssue": [],
+      "ExpectedGoldenFields": {
+        "golden_version_increments": true,
+        "crosswalk_preserved": true
+      }
+    }
+  ]
+}

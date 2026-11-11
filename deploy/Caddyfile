@@ -1,0 +1,16 @@
+# Caddy obtains and renews the TLS certificate automatically (needs DNS A/AAAA → this host, and ports 80/443 reachable).
+kotra-ax2.wizbase.ai.kr {
+	encode zstd gzip
+	# SSE (AI streaming) must not be buffered
+	reverse_proxy 127.0.0.1:4400 {
+		flush_interval -1
+		header_up X-Forwarded-Proto {scheme}
+	}
+	header {
+		-Server
+		X-Robots-Tag "noindex, nofollow"   # demo site: keep out of search engines
+	}
+	log {
+		output file /var/log/caddy/kotra-ax2.log
+	}
+}
